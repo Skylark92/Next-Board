@@ -3,6 +3,7 @@ import React from "react";
 export default function Write() {
   return (
     <div className="p-20">
+      <h4>글 작성</h4>
       <form action="/api/post/new" method="POST">
         <label htmlFor="write_title">제목</label>
         <input
