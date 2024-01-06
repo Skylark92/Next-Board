@@ -9,14 +9,19 @@ export default function ListItem({ id, title }: { id: string; title: string }) {
     if (isConfirm) {
       fetch("/api/post/delete/" + id, {
         method: "DELETE",
-      }).then(() => {
-        const target = event.target as HTMLSpanElement;
-        const parent = target.parentElement;
-        if (!parent) return;
-        parent.style.opacity = "0";
-        setTimeout(() => {
-          parent.remove();
-        }, 1000);
+      }).then((res) => {
+        if (res?.status === 200) {
+          const target = event.target as HTMLSpanElement;
+          const parent = target.parentElement;
+          if (!parent) return;
+          parent.style.opacity = "0";
+          setTimeout(() => {
+            parent.remove();
+          }, 1000);
+        } else {
+          alert("삭제하지 못했습니다.");
+          console.log(res);
+        }
       });
     }
   };

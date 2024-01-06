@@ -52,3 +52,6 @@ a {
   opacity: 1;
   transition: all 1s;
 }
+.navbar span button {
+  margin-left: 10px;
+}
