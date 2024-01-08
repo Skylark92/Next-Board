@@ -6,8 +6,6 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  console.log(req.query);
-  console.log("body:", req.body);
   try {
     if (req.method !== "POST") {
       throw new Error("잘못된 요청입니다!");
