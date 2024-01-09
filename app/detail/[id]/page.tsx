@@ -2,6 +2,7 @@ import { PageProps } from "@/.next/types/app/layout";
 import { connectDB } from "@/util/database";
 import { ObjectId } from "mongodb";
 import Comment from "./Comment";
+import { notFound } from "next/navigation";
 
 export default async function Detail(props: PageProps) {
   const db = (await connectDB).db("forum");
@@ -18,8 +19,6 @@ export default async function Detail(props: PageProps) {
       </div>
     );
   else {
-    <div>
-      <h4>페이지를 찾을 수 없습니다.</h4>
-    </div>;
+    return notFound();
   }
 }

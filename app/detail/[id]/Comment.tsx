@@ -26,10 +26,8 @@ export default function Comment({ post }: { post: string }) {
       method: "POST",
       body: JSON.stringify(body),
     }).then((res) => {
-      console.log(res);
       if (res.ok) {
         res.json().then((result) => {
-          console.log(result);
           setList(result);
         });
       }
